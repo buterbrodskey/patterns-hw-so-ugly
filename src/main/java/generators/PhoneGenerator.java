@@ -22,6 +22,12 @@ public class PhoneGenerator implements Generator<Phone> {
     }
 
     @Override
+    public Phone getResponse(int code) {
+        generateParams(code);
+        return buildResponse();
+    }
+
+    @Override
     public final Phone buildResponse() {
         return new Phone(number);
     }

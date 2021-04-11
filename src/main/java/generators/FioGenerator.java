@@ -49,4 +49,3 @@ public class FioGenerator {
         middleName = getLinesFromFile("middleNames_" + sex).get(i);
     }
 }
-

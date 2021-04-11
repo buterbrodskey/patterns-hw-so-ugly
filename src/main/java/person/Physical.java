@@ -14,6 +14,7 @@ public class Physical {
 
     @Override
     public final String toString() {
-        return String.format("Возраст:\t%1$s%nВес:\t\t%2$s кг%nРост:\t\t%3$s м", age, weight, height);
+        //return String.format("Возраст:\t%1$s%nВес:\t\t%2$s кг%nРост:\t\t%3$s м", age, weight, height);
+        return "Возраст:\t" + age + "\nВес:\t\t" +weight + " кг\nРост:\t\t"+ height +" м";
     }
 }

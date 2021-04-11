@@ -23,6 +23,12 @@ public class PhysGenerator implements Generator<Physical> {
     }
 
     @Override
+    public Physical getResponse(int code) {
+        generateParams(code);
+        return buildResponse();
+    }
+
+    @Override
     public final Physical buildResponse() {
         return new Physical(age, weight, height);
     }

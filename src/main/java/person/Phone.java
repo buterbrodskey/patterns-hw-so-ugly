@@ -10,6 +10,6 @@ public class Phone {
 
     @Override
     public final String toString() {
-        return "Телефон:\t" + number;
+        return "Телефон:"+"\t"+ number;
     }
 }

@@ -1,7 +1,6 @@
 public class Main {
 
     public static void main(final String... args) {
-        // Запуск приложения из контроллера
-        new Controller().launch();
+        Controller.getInstance().launch();
     }
 }

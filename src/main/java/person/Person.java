@@ -5,27 +5,17 @@ import person.appearance.Appearance;
 public class Person {
 
     private final String id;
-    private final String lastName;
-    private final String firstName;
-    private final String middleName;
+    private final Fio fio;
     private final Physical phys;
     private final Appearance appearance;
     private final Phone phone;
 
-    public Person(final String id,
-                  final String lastName,
-                  final String firstName,
-                  final String middleName,
-                  final Physical phys,
-                  final Appearance appearance,
-                  final Phone phone) {
-        this.id = id;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.phys = phys;
-        this.appearance = appearance;
-        this.phone = phone;
+    public Person(PersonData personData) {
+        this.id = personData.id;
+        this.fio = personData.fio;
+        this.phys = personData.phys;
+        this.appearance = personData.appearance;
+        this.phone = personData.phone;
     }
 
 
@@ -33,7 +23,7 @@ public class Person {
     public final String toString() {
         final StringBuilder sb = new StringBuilder()
                 .append(id).append("\n")
-                .append(String.format("%1$s %2$s %3$s", lastName, firstName, middleName)).append("\n")
+                .append(String.format("%1$s %2$s %3$s", fio.lastName, fio.firstName, fio.middleName)).append("\n")
                 .append(phys).append("\n")
                 .append(appearance).append("\n");
         if (phone != null) {
