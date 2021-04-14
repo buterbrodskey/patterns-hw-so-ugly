@@ -1,40 +1,19 @@
 package person.appearance.hair;
 
-public class Hair {
-    public HairLength hairLength;
-    public String color;
+public final class Hair {
+    private final HairLength hairLength;
+    private final String color;
+
+    public Hair(final HairLength hairLength, final String color) {
+        this.hairLength = hairLength;
+        this.color = color;
+    }
     @Override
     public String toString() {
-        if (!hairLength.equals(HairLength.NONE))
-            return hairLength.length +
-                    ", " + color;
-        else {
-            return hairLength.length;
-        }
-    }
-
-    public static class HairBuilder {
-        private final Hair hair;
-        public HairBuilder() {
-            hair = new Hair();
-        }
-
-        public HairBuilder withColor(String hairColor) {
-            hair.color = hairColor;
-            return this;
-        }
-
-        public HairBuilder withLength(int hairLength) {
-            if (hairLength > 0) {
-                hair.hairLength = (hairLength > 4) ? HairLength.LONG : HairLength.SHORT;
-            } else {
-                hair.hairLength = HairLength.NONE;
-            }
-            return this;
-        }
-
-        public Hair getHair() {
-            return hair;
+        if (!hairLength.equals(HairLength.NONE)) {
+            return hairLength.getLength() + ", " + color;
+        } else {
+            return hairLength.getLength();
         }
     }
 }

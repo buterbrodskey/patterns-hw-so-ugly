@@ -13,7 +13,7 @@ public enum EyesColor {
 
     private final String color;
 
-    EyesColor(String color) {
+    EyesColor(final String color) {
         this.color = color;
     }
 }

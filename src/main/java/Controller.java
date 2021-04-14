@@ -1,11 +1,11 @@
 import java.nio.charset.Charset;
 import java.util.Scanner;
 
-public class Controller {
+public final class Controller {
 
     private static Controller instance;
-    private Controller(){}
-
+    private Controller() {
+    }
     public static Controller getInstance() {
         if (instance == null) {
             instance = new Controller();
@@ -14,7 +14,7 @@ public class Controller {
     }
     private final InputProcessor processor = new InputProcessor();
 
-    public final void launch() {
+    public void launch() {
         final Scanner scanner = new Scanner(System.in, Charset.defaultCharset());
         String input;
         while (true) {

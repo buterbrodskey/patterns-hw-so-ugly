@@ -3,6 +3,7 @@ package generators;
 import person.appearance.Appearance;
 import person.appearance.EyesColor;
 import person.appearance.hair.Hair;
+import person.appearance.hair.HairLength;
 
 import java.util.HashMap;
 
@@ -24,12 +25,6 @@ public class AppearanceGenerator implements Generator<Appearance> {
         put(9, "синие");
     }};
 
-    @Override
-    public Appearance getResponse(final int code) {
-        generateParams(code);
-        return buildResponse();
-    }
-
     /**
      * Внешность генерируется по третьей цифре кода (i):
      * Глаза: по индексу i/2 (=0..4)
@@ -45,13 +40,13 @@ public class AppearanceGenerator implements Generator<Appearance> {
 
     }
 
-    private void generateHairColor(int i) {
+    private void generateHairColor(final int i) {
         if (i > 0) {
             hairColor = hairColorMap.get(i);
         }
     }
 
-    private void generateEyes(int i) {
+    private void generateEyes(final int i) {
         switch (i / 2) {
             case 0:
                 eyes = EyesColor.BLUE.getColor();
@@ -75,11 +70,14 @@ public class AppearanceGenerator implements Generator<Appearance> {
 
     @Override
     public final Appearance buildResponse() {
-        Hair hair = new Hair.HairBuilder()
-                .withColor(hairColor)
-                .withLength(hairLength)
-                .getHair();
-
+        HairLength length;
+        Hair hair;
+        if (hairLength > 0) {
+            length = (hairLength > 4) ? HairLength.LONG : HairLength.SHORT;
+        } else {
+            length = HairLength.NONE;
+        }
+        hair = new Hair(length, hairColor);
         return new Appearance(eyes, hair);
     }
 }

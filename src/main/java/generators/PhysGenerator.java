@@ -21,13 +21,6 @@ public class PhysGenerator implements Generator<Physical> {
         weight = 30 + i * 10;
         height = (100 + i * 10) / 100.00;
     }
-
-    @Override
-    public Physical getResponse(int code) {
-        generateParams(code);
-        return buildResponse();
-    }
-
     @Override
     public final Physical buildResponse() {
         return new Physical(age, weight, height);

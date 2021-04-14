@@ -6,5 +6,8 @@ public interface Generator<T> {
 
     T buildResponse();
 
-    T getResponse(int code);
+    default T getResponse(final int code) {
+        generateParams(code);
+        return buildResponse();
+    }
 }

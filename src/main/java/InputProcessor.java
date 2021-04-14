@@ -7,8 +7,7 @@ public class InputProcessor {
         Person person = PersonFactory.getPerson(input);
         if (person == null) {
             result = "Неверный ввод.";
-        }
-        else {
+        } else {
             result = person.toString();
         }
         return result;

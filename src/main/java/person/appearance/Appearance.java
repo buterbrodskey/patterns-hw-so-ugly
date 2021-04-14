@@ -15,7 +15,7 @@ public class Appearance {
     @Override
     public final String toString() {
         //return String.format("Глаза:\t\t%1$s%nВолосы:\t\t%2$s", eyes, hair.toString());
-        return "Глаза:"+"\t\t"+eyes+"\nВолосы:"+"\t\t" + hair;
+        return "Глаза:\t\t" + eyes + "\nВолосы:\t\t" + hair;
     }
 
 }

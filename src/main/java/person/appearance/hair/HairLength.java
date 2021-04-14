@@ -5,9 +5,12 @@ public enum HairLength {
     SHORT("короткие"),
     NONE("нет");
 
-    String length;
+    private String length;
+    public String getLength() {
+        return length;
+    }
 
-    HairLength(String length) {
+    HairLength(final String length) {
         this.length = length;
     }
 }
